@@ -33,11 +33,11 @@ function App() {
                     <Card.Text style={{ overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>{projeto.acessibilidade}</Card.Text>
                   </Card.Body>
                   <Card.Footer style={{ backgroundColor: 'transparent', borderTop: 'none' }}>
-                  <p className="text-muted">Aprovado:<small className="text-muted font-weight-bold"> R$ {projeto.valor_aprovado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL', useGrouping: true }).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')},00</small></p>
+                  <p className="text-muted">Aprovado:<small className="text-muted font-weight-bold"> R$ {projeto.valor_aprovado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL', useGrouping: true }).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</small></p>
 
                   </Card.Footer>
                   <Card.Footer style={{ backgroundColor: 'transparent', borderTop: 'none' }}>
-                    <p className="text-muted">Captado:<small className="text-muted font-weight-bold"> R$ {projeto.valor_aprovado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL', useGrouping: true }).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')},00</small></p>
+                    <p className="text-muted">Captado:<small className="text-muted font-weight-bold"> R$ {projeto.valor_aprovado.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2, style: 'currency', currency: 'BRL', useGrouping: true }).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}</small></p>
                   </Card.Footer>
                   <Card.Footer style={{ backgroundColor: 'transparent', borderTop: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Button variant="primary" style={{ backgroundColor: '#f2f2f2', width: '80%', border: 'none', color: '#444' }}>Adicionar</Button>
