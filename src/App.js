@@ -1,12 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, CardColumns, Carousel } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 function App() {
   const [projetos, setProjetos] = useState([]);
+  const [favoritos, setFavoritos] = useState([]);
   const carouselRef = useRef(null);
 
   useEffect(() => {
@@ -18,6 +19,14 @@ function App() {
         console.log(error);
       })
   }, []);
+
+  const handleFavoritar = (projeto) => {
+    if (favoritos.some((fav) => fav.id === projeto.id)) {
+      setFavoritos(favoritos.filter((fav) => fav.id !== projeto.id));
+    } else {
+      setFavoritos([...favoritos, projeto]);
+    }
+  };
 
   return (
     <div className="d-flex align-items-center justify-content-center">
@@ -41,7 +50,7 @@ function App() {
                   </Card.Footer>
                   <Card.Footer style={{ backgroundColor: 'transparent', borderTop: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Button variant="primary" style={{ backgroundColor: '#f2f2f2', width: '80%', border: 'none', color: '#444' }}>Adicionar</Button>
-                    <FontAwesomeIcon icon={faHeart} style={{ color: '#444', padding: '12px'}} />
+                    <FontAwesomeIcon icon={favoritos.some((fav) => fav.id === projeto.id) ? faHeartSolid : faHeart} onClick={() => handleFavoritar(projeto)} style={{ color: favoritos.some((fav) => fav.id === projeto.id) ? 'red' : '#444', padding: '12px'}} />
                   </Card.Footer>
 
 
